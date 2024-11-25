@@ -229,7 +229,7 @@ impl Game {
                     println!("After place piece: X {}, Y {}", block.x, block.y);
                 }
 
-                self.clear_full_rows();
+                 self.clear_full_rows();
                 
                 self.piece_settled = false;
             } else {
@@ -254,6 +254,7 @@ impl Game {
             self.piece_settled = true;
         }
     }
+
     fn clear_full_rows(&mut self) {
         // Remove rows that are completely filled
         self.grid
@@ -345,10 +346,10 @@ impl Game {
       
 
         for block in &self.current_piece.blocks {
-            let relative_x = block.x + center.x;
-            let relative_y = block.y ;
+        
             // Assign color to the actual position of the block
-            self.grid[relative_y as usize][relative_x as usize] = Some(self.current_piece.color);
+            self.grid[block.y as usize][block.x as usize] = Some(self.current_piece.color);
+            
         }
     }
    
@@ -377,7 +378,7 @@ fn main() {
                 for (y, row) in game.grid.iter().enumerate() {
                     for (x, cell) in row.iter().enumerate() {
                         if let Some(color) = cell {
-                            let transform = c.transform.trans(x as f64, y as f64 * BLOCK_SIZE);
+                            let transform = c.transform.trans(x as f64* BLOCK_SIZE, y as f64 * BLOCK_SIZE);
                             rectangle(*color, [0.0, 0.0, BLOCK_SIZE, BLOCK_SIZE], transform, g);
                         }
                     }
