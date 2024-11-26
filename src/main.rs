@@ -6,30 +6,16 @@ extern crate piston_window;
 extern crate rand;
 extern crate rodio;
 
-use ::std::fs::File;
-use ::std::io::BufReader;
-use glutin_window::GlutinWindow as Window;
-use graphics::types::Width;
-use graphics::Context;
 use graphics::*;
-use graphics::{grid, math};
-use opengl_graphics::{GlGraphics, OpenGL};
-use piston::event_loop::{EventSettings, Events};
-use piston::input::{Button, PressEvent, RenderArgs, RenderEvent, UpdateArgs, UpdateEvent};
+use piston::input::{Button, PressEvent, RenderEvent,};
 use piston::window::WindowSettings;
-use piston::{EventLoop, Key, MouseButton, MouseCursorEvent};
-use piston_window::types::Color;
-use piston_window::{G2d, TextureSettings};
+use piston::Key;
+
 use piston_window::{Glyphs, PistonWindow};
 use rand::Rng;
-use rodio::source::Source;
-use rodio::{Decoder, OutputStream, Sink};
-use std::arch::x86_64;
-use std::os::windows;
-use std::process::exit;
-use std::slice::Windows;
-use std::time::{self, Duration, Instant};
-use std::{thread, vec};
+
+use std::time::{Duration, Instant};
+use std::vec;
 
 const GRID_WIDTH: usize = 10;
 
